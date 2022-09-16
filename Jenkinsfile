@@ -33,16 +33,23 @@ pipeline
                sh 'java -jar /home/ubuntu/.jenkins/workspace/Scriptedpipeline/testing.jar'
             }
         }
-        stage('ContinuousDelivery')
-        {
-            steps
-            {
-               sh 'scp /home/ubuntu/.jenkins/workspace/Scriptedpipeline/webapp/target/webapp.war ubuntu@172.31.12.210:/var/lib/tomcat9/webapps/prodapp.war' 
-            }
-        } 
+       
     }
-    
-    
+ 
+    post {
+       
+       success{
+           
+     sh 'scp /home/ubuntu/.jenkins/workspace/Scriptedpipeline/webapp/target/webapp.war ubuntu@172.31.12.210:/var/lib/tomcat9/webapps/prodapp.war' 
+            
+      
+       } 
+        failure
+        {
+            mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'failure of CICD process', to: 'abhilashreddy977@gmail.com'
+        }
+        
+    }
     
     
     
