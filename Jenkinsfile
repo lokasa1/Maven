@@ -21,7 +21,8 @@ pipeline
         {
             steps
             {
-               deploy adapters: [tomcat9(credentialsId: '1dd0c113-a036-45d4-9d24-8f6af7bf267c', path: '', url: 'http://172.31.10.25:8080')], contextPath: 'testapp', war: '**/*.war'
+               sh 'scp /home/ubuntu/.jenkins/workspace/Scriptedpipeline/webapp/target/webapp.war ubuntu@172.31.10.25:/var/lib/tomcat9/webapps/testapp.war'
+
             }
         }
         stage('ContinuousTesting')
@@ -36,7 +37,7 @@ pipeline
         {
             steps
             {
-               deploy adapters: [tomcat9(credentialsId: '1dd0c113-a036-45d4-9d24-8f6af7bf267c', path: '', url: 'http://172.31.12.210:8080')], contextPath: 'prodapp', war: '**/*.war'
+               sh 'scp /home/ubuntu/.jenkins/workspace/Scriptedpipeline/webapp/target/webapp.war ubuntu@172.31.12.210:/var/lib/tomcat9/webapps/prodapp.war' 
             }
         }
        
