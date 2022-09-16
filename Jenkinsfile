@@ -39,8 +39,7 @@ pipeline
             {
                sh 'scp /home/ubuntu/.jenkins/workspace/Scriptedpipeline/webapp/target/webapp.war ubuntu@172.31.12.210:/var/lib/tomcat9/webapps/prodapp.war' 
             }
-        }
-       
+        } 
     }
     
     
