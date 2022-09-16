@@ -46,7 +46,7 @@ pipeline
        } 
         failure
         {
-            mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'failure of CICD process', to: 'abhilashreddy977@gmail.com'
+            mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'failure of CICD process', to: 'abhilashreddy9777@gmail.com'
         }
         
     }
